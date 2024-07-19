@@ -5,6 +5,7 @@
     <h1 class="text-center mb-4">Comissões</h1>
 
     <div class="text-right mb-3">
+        <a href="{{ route('dashboard') }}" class="btn btn-danger">Dashboard</a>
         <a href="{{ route('commissions.create') }}" class="btn btn-success">Adicionar Comissão</a>
     </div>
 

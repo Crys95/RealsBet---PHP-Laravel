@@ -16,7 +16,7 @@ class CommissionController extends Controller
 
     public function create()
     {
-        $affiliates = Affiliate::where('user_id', auth()->user()->id)->get();
+        $affiliates = Affiliate::where('user_id', auth()->user()->id)->where('status', 'ativo')->get();
     
         return view('commissions.create', compact('affiliates'));
     }

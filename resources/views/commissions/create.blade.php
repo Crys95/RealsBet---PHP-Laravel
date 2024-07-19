@@ -22,6 +22,7 @@
             <label for="value">Valor:</label>
             <input type="number" name="value" id="value" class="form-control" step="0.01" required>
         </div>
+        <a href="{{ route('commissions.index') }}" class="btn btn-primary">Voltar</a>
         <button type="submit" class="btn btn-primary">Adicionar Comissão</button>
     </form>
 

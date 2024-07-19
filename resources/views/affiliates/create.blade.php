@@ -20,8 +20,8 @@
                 <option value="inativo">Inativo</option>
             </select>
         </div>
-        <button type="submit" class="btn btn-warning">Criar Afiliado</button>
         <a href="{{ route('affiliates.index') }}" class="btn btn-warning">Voltar</a>
+        <button type="submit" class="btn btn-warning">Criar Afiliado</button>
     </form>
 </div>
 @endsection

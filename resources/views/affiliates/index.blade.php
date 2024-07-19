@@ -4,7 +4,8 @@
 <div class="container mt-5">
     <h1 class="text-center mb-4">Lista de Afiliados</h1>
 
-    <div class="mb-3">
+    <div class="text-right mb-3">
+        <a href="{{ route('dashboard') }}" class="btn btn-danger">Dashboard</a>
         <a href="{{ route('affiliates.create') }}" class="btn btn-success">Novo Afiliado</a>
     </div>
 
