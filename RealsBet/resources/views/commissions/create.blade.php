@@ -3,6 +3,7 @@
 @section('content')
 <div class="container mt-5">
     <h1 class="text-center mb-4">Adicionar Comissão</h1>
+
     <form action="{{ route('commissions.store') }}" method="POST">
         @csrf
         <div class="form-group">
@@ -23,5 +24,6 @@
         </div>
         <button type="submit" class="btn btn-primary">Adicionar Comissão</button>
     </form>
+
 </div>
 @endsection

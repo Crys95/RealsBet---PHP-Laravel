@@ -3,6 +3,11 @@
 @section('content')
 <div class="container mt-5">
     <h1 class="text-center mb-4">Lista de Afiliados</h1>
+
+    <div class="mb-3">
+        <a href="{{ route('affiliates.create') }}" class="btn btn-success">Novo Afiliado</a>
+    </div>
+
     <div class="table-responsive">
         <table class="table table-striped">
             <thead class="thead-light">
@@ -31,7 +36,6 @@
                             <input type="hidden" name="status" value="{{ $affiliate->status === 'ativo' ? 'inativo' : 'ativo' }}">
                             <button class="btn btn-primary btn-sm" type="submit">Mudar Status</button>
                         </form>
-                        
                     </td>
                 </tr>
                 @endforeach

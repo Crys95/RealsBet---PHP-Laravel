@@ -3,7 +3,7 @@
 @section('content')
 <div class="container mt-5">
     <h1 class="text-center mb-4">Criar Afiliado</h1>
-    <form action="{{ route('affiliates') }}" method="POST">
+    <form action="{{ route('affiliates.store') }}" method="POST">
         @csrf
         <div class="form-group">
             <label for="name">Nome:</label>

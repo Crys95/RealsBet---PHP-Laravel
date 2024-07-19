@@ -10,8 +10,10 @@ class CreateCommissionsTable extends Migration
     {
         Schema::create('commissions', function (Blueprint $table) {
             $table->id();
-            $table->uuid('affiliate_id');
+            $table->unsignedBigInteger('affiliate_id');
             $table->foreign('affiliate_id')->references('id')->on('affiliates')->onDelete('cascade');
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->date('date');
             $table->decimal('value', 10, 2);
             $table->timestamps();

@@ -33,7 +33,6 @@ class AffiliateController extends Controller
         $user = Auth::user();
     
         $affiliate = Affiliate::create([
-            'id' => (string) Str::uuid(),
             'name' => $request->name,
             'email' => $request->email,
             'status' => $request->status,
@@ -43,10 +42,12 @@ class AffiliateController extends Controller
         Log::info('Afiliado criado: ' . $affiliate->name);
         return redirect()->route('affiliates.index')->with('success', 'Afiliado criado com sucesso!');
     }
+    
+    
 
     public function destroy($id)
     {
-        $affiliate = Affiliate::findOrFail($id);
+        $affiliate = Affiliate::find($id);
         $affiliate->delete();
     
         return redirect()->route('affiliates.index')->with('success', 'Afiliado removido com sucesso.');
@@ -54,7 +55,7 @@ class AffiliateController extends Controller
 
     public function updateStatus(Request $request, $id)
     {
-        $affiliate = Affiliate::findOrFail($id);
+        $affiliate = Affiliate::find($id);
         
         $request->validate([
             'status' => 'required|in:ativo,inativo',
