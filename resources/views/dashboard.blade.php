@@ -38,7 +38,7 @@
                     @forelse ($commissions as $commission)
                         <tr>
                             <td>{{ $commission->affiliate->name }}</td>
-                            <td>{{ $commission->date }}</td>
+                            <td>{{ \Carbon\Carbon::parse($commission->date)->format('d/m/Y H:i') }}</td>
                             <td>{{ $commission->value }}</td>
                         </tr>
                     @empty

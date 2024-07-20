@@ -20,11 +20,36 @@
         </div>
         <div class="form-group">
             <label for="value">Valor:</label>
-            <input type="number" name="value" id="value" class="form-control" step="0.01" required>
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">R$</span>
+                </div>
+                <input type="text" name="value" id="value" class="form-control" required
+                       placeholder="0,00" pattern="[0-9]+([\,][0-9]+)?" title="Digite um valor válido no formato 0,00">
+            </div>
         </div>
         <a href="{{ route('commissions.index') }}" class="btn btn-primary">Voltar</a>
         <button type="submit" class="btn btn-primary">Adicionar Comissão</button>
     </form>
 
 </div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    var input = document.getElementById('value');
+
+    input.addEventListener('input', function () {
+        var value = this.value.replace(/[^\d\,]/g, '');
+
+        var parts = value.split(',');
+        if (parts.length > 1) {
+            parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+            this.value = parts[0] + ',' + parts[1].substring(0, 2);
+        } else {
+            this.value = value.replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+        }
+    });
+});
+</script>
+
 @endsection
